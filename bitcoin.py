@@ -16,7 +16,7 @@ def load_data(model_name):
     return datasets
 
 def main():
-    st.title('Cryptocurrency Close Price Dashboard: Bitcoin')
+    st.title('Bitcoin')
     
     model_names = ['multi_bdlstm', 'uni_bdlstm', 'multi_edlstm', 'uni_edlstm', 'multi_clstm', 'uni_clstm']
     model_value = st.selectbox('Select Model', model_names)
@@ -105,11 +105,11 @@ def main():
         name='Quantile 0.75 - 0.95'
     ))
     
-    fig.add_trace(go.Scatter(x=close_dates, y=quantile_05, mode='lines', name='Quantile 0.05', line=dict(color='blue')))
-    fig.add_trace(go.Scatter(x=close_dates, y=quantile_25, mode='lines', name='Quantile 0.25', line=dict(color='green')))
-    fig.add_trace(go.Scatter(x=close_dates, y=quantile_50, mode='lines', name='Quantile 0.50', line=dict(color='orange')))
-    fig.add_trace(go.Scatter(x=close_dates, y=quantile_75, mode='lines', name='Quantile 0.75', line=dict(color='red')))
-    fig.add_trace(go.Scatter(x=close_dates, y=quantile_95, mode='lines', name='Quantile 0.95', line=dict(color='purple')))
+    fig.add_trace(go.Scatter(x=close_dates, y=quantile_05, mode='lines', name='Quantile 0.05', line=dict(color='blue'), showlegend=False))
+    fig.add_trace(go.Scatter(x=close_dates, y=quantile_25, mode='lines', name='Quantile 0.25', line=dict(color='green'),showlegend=False))
+    fig.add_trace(go.Scatter(x=close_dates, y=quantile_50, mode='lines', name='Quantile 0.50', line=dict(color='orange'), showlegend=False))
+    fig.add_trace(go.Scatter(x=close_dates, y=quantile_75, mode='lines', name='Quantile 0.75', line=dict(color='red'), showlegend=False))
+    fig.add_trace(go.Scatter(x=close_dates, y=quantile_95, mode='lines', name='Quantile 0.95', line=dict(color='purple'), showlegend=False))
     
     fig.add_trace(go.Scatter(x=close_dates, y=actual_values, mode='lines+markers', name='Actual', line=dict(color='black')))
     fig.add_trace(go.Scatter(x=close_dates, y=pred_values, mode='lines+markers', name='Predicted', line=dict(color='red', dash='dot')))
