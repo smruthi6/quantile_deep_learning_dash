@@ -42,15 +42,9 @@ def main():
     with col1:
         if st.button("Bitcoin"):
             st.session_state.page = "bitcoin"
-        if st.button("Sunspot"):
-            st.session_state.page = "s"
-        if st.button("Lorenz"):
-            st.session_state.page = "l"
     with col2:
         if st.button("Ethereum"):
             st.session_state.page = "ethereum"
-        if st.button("Mackey-Glass"):
-            st.session_state.page = "m"
 
     # Initialize session state if not already set
     if "page" not in st.session_state:
